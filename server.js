@@ -31,13 +31,14 @@ if (process.env.NODE_ENV === "production") {
 
 
 // Connect to MongoDB
+/*
 mongoose
     .connect(
         db, { useNewUrlParser: true }
     )
     .then(() => console.log("MongoDB successfully connected"))
     .catch(err => console.log(err));
-
+*/
 // Passport middleware
 app.use(passport.initialize());
 
@@ -51,6 +52,9 @@ app.use("/api/users", users);
 
 app.use("/api/folders", folders);
 app.use("/api/files", files);
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://hulamo:33128284@cluster0-xjcwz.mongodb.net/test?retryWrites=true&w=majority");
+
 
 //const port = process.env.PORT || 5000;
 
