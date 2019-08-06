@@ -52,7 +52,9 @@ class Navbar extends Component {
         >
           <MDBNavbarBrand>
             <MDBNavLink to="/">
-              <strong className="white-text">DocumentRepo</strong>{" "}
+              <strong style={{ fontSize: "24px" }} className="white-text">
+                DocumentRepo
+              </strong>
             </MDBNavLink>
           </MDBNavbarBrand>
           <MDBNavbarToggler onClick={this.toggleCollapse} />
@@ -70,9 +72,7 @@ class Navbar extends Component {
             </MDBNavbarNav>
             <MDBNavbarNav right>
               <MDBNavItem>
-                {!mostrar && (
-                  <MDBNavLink to="/contacts">Our Plans & Prices</MDBNavLink>
-                )}
+                {!mostrar && <MDBNavLink to="/plans">Pricing Plans</MDBNavLink>}
               </MDBNavItem>
               <MDBNavItem>
                 {!mostrar && <MDBNavLink to="/register">Register</MDBNavLink>}

@@ -4,6 +4,15 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBInput,
+  MDBBtn,
+  MDBCard,
+  MDBCardBody
+} from "mdbreact";
 
 class Register extends Component {
   constructor() {
@@ -52,6 +61,7 @@ class Register extends Component {
   render() {
     const { errors } = this.state;
 
+    /*
     return (
       <div className="container">
         <div className="row">
@@ -143,6 +153,91 @@ class Register extends Component {
           </div>
         </div>
       </div>
+    );*/
+
+    return (
+      <MDBContainer>
+        <MDBRow className="justify-content-md-center">
+          <MDBCol md="5">
+            <MDBCard>
+              <MDBCardBody>
+                <form onSubmit={this.onSubmit}>
+                  <p className="h4 text-center py-4">Sign up</p>
+                  <div className="grey-text">
+                    <MDBInput
+                      onChange={this.onChange}
+                      value={this.state.name}
+                      id="name"
+                      type="text"
+                      label="Your name"
+                      icon="user"
+                      group
+                      validate
+                      error="wrong"
+                      success="right"
+                    />
+                    <MDBInput
+                      onChange={this.onChange}
+                      value={this.state.name}
+                      id="username"
+                      type="text"
+                      label="Your username"
+                      icon="user-tag"
+                      group
+                      validate
+                      error="wrong"
+                      success="right"
+                    />
+
+                    <MDBInput
+                      onChange={this.onChange}
+                      value={this.state.email}
+                      id="email"
+                      label="Your email"
+                      icon="envelope"
+                      group
+                      type="email"
+                      validate
+                      error="wrong"
+                      success="right"
+                    />
+
+                    <MDBInput
+                      onChange={this.onChange}
+                      value={this.state.password}
+                      id="password"
+                      label="Confirm your password"
+                      icon="lock"
+                      group
+                      type="password"
+                      validate
+                    />
+                    <MDBInput
+                      onChange={this.onChange}
+                      value={this.state.password2}
+                      id="password2"
+                      label="Your password"
+                      icon="lock"
+                      group
+                      type="password"
+                      validate
+                    />
+                    <p className=" text-center grey-text text-darken-1">
+                      Are you a DocumentRepo User?{" "}
+                      <Link to="/login">Login</Link>
+                    </p>
+                  </div>
+                  <div className="text-center py-4 mt-3">
+                    <MDBBtn color="cyan" type="submit">
+                      Register
+                    </MDBBtn>
+                  </div>
+                </form>
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
     );
   }
 }

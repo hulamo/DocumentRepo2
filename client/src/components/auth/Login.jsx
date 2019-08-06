@@ -5,6 +5,16 @@ import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
 
+import {
+  MDBCard,
+  MDBCardBody,
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBInput,
+  MDBBtn
+} from "mdbreact";
+
 class Login extends Component {
   constructor() {
     super();
@@ -45,13 +55,13 @@ class Login extends Component {
       email: this.state.email,
       password: this.state.password
     };
-
+    console.log("userData" + userData);
     this.props.loginUser(userData);
   };
 
   render() {
     const { errors } = this.state;
-
+    /*
     return (
       <div className="container">
         <div style={{ marginTop: "4rem" }} className="row">
@@ -121,6 +131,55 @@ class Login extends Component {
           </div>
         </div>
       </div>
+    );
+  */
+
+    return (
+      <MDBContainer>
+        <form noValidate onSubmit={this.onSubmit}>
+          <MDBRow className="justify-content-md-center">
+            <MDBCol md="5">
+              <MDBCard>
+                <MDBCardBody>
+                  <p className="h5 text-center mb-4">Sign in</p>
+                  <div className="grey-text">
+                    <MDBInput
+                      onChange={this.onChange}
+                      value={this.state.email}
+                      id="email"
+                      type="email"
+                      label="Type your email"
+                      icon="envelope"
+                      group
+                      validate
+                      error="wrong"
+                      success="right"
+                    />
+
+                    <MDBInput
+                      onChange={this.onChange}
+                      value={this.state.password}
+                      id="password"
+                      label="Type your password"
+                      icon="lock"
+                      group
+                      type="password"
+                      validate
+                    />
+                  </div>
+
+                  <p className=" text-center grey-text text-darken-1">
+                    Don't have an account? <Link to="/register">Register</Link>
+                  </p>
+                  <div className="text-center">
+                    <MDBBtn type="submit">Login</MDBBtn>
+                  </div>
+                </MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+          </MDBRow>
+        </form>
+      </MDBContainer>
     );
   }
 }
