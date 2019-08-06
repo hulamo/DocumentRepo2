@@ -33,7 +33,6 @@ import NewFriend from "./components/dashboard/NewFriend";
 import Files from "./components/dashboard/Files";
 import "./App.css";
 
-/*
 var renderbar = true;
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -84,12 +83,11 @@ class App extends Component {
     );
   }
 }
-*/
 
-class App extends Component {
+/*class App extends Component {
   render() {
     return <div>Prueba</div>;
   }
-}
+}*/
 
 export default App;
