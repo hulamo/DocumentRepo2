@@ -90,14 +90,14 @@ class Landing extends Component {
               </MDBCol>
             </MDBRow>
           </MDBCol>
-          <MDBCol className="d-sm-block text-center" md="6" middle center>
+          <MDBCol className="d-sm-block text-center" md="6" middle>
             <MDBRow>
               <MDBCol md="12">
                 <br />
               </MDBCol>
             </MDBRow>
-            <MDBRow middle center>
-              <MDBCol md="6" center>
+            <MDBRow middle>
+              <MDBCol md="6">
                 <i
                   className="fas fa-book"
                   style={{ fontSize: "54px", color: "green" }}
@@ -106,7 +106,7 @@ class Landing extends Component {
                   DocumentRepo
                 </strong>
               </MDBCol>
-              <MDBCol md="6" center>
+              <MDBCol md="6">
                 <MDBBtn rounded href="/login" size="lg" active color="green">
                   Login
                 </MDBBtn>
@@ -117,8 +117,8 @@ class Landing extends Component {
                 <br />
               </MDBCol>
             </MDBRow>
-            <MDBRow middle center>
-              <MDBCol md="12" center>
+            <MDBRow middle>
+              <MDBCol md="12">
                 <strong style={{ fontSize: "34px" }}>
                   Discover the best way to share your documents
                 </strong>

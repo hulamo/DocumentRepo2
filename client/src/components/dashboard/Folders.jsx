@@ -32,12 +32,6 @@ class Dashboard extends Component {
       .catch(err => console.log(err));
   }
 
-  /* handleRowClick(nid) {
-    console.log("nid");
-    console.log(nid);
-  }
-*/
-
   NewFolder = () => {
     console.log("Redirect");
     this.props.history.push("/newfolder");
@@ -57,7 +51,6 @@ class Dashboard extends Component {
     //console.log(this.state.savedFolders);
     //userp = user.id;
 
-    const sFolders = { ...this.state.misFolders };
     console.log("this.state.misFolders");
     console.log(this.state.misFolders);
 
@@ -113,58 +106,16 @@ class Dashboard extends Component {
         }
       ],
       rows: FoldersRow
-      /* [
-        //  FoldersRow
-
-        {
-          name2: "Tiger Nixon",
-          position: "System Architect"
-        }
-      ]*/
     };
 
     return (
-      <div
-        style={{ topMargin: "200px", height: "45vh" }}
-        // className="container valign-wrapper"
-      >
-        <MDBContainer>
-          <MDBRow className="row justify-content-end">
-            <div className="row justify-content-end">
-              <MDBCol>
-                <MDBBtn color="elegant" onClick={this.NewFolder}>
-                  + Nueva Carpeta
-                </MDBBtn>
-              </MDBCol>
-            </div>
-          </MDBRow>
-
-          <div className="row">
-            <div className="landing-copy col s12 center-align">
-              <h4>
-                <b>Hey there,</b> {user.name.split(" ")[0]}
-                <p className="flow-text grey-text text-darken-1">
-                  You are logged into a full-stack{" "}
-                  <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
-                </p>
-              </h4>
-              <MDBDataTable btn striped bordered small data={data} />
-              <button
-                style={{
-                  width: "150px",
-                  borderRadius: "3px",
-                  letterSpacing: "1.5px",
-                  marginTop: "1rem"
-                }}
-                onClick={this.onLogoutClick}
-                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-              >
-                Logout
-              </button>
-            </div>
-          </div>
-        </MDBContainer>
-      </div>
+      <MDBContainer>
+        <MDBRow>
+          <MDBCol md="12">
+            <MDBDataTable btn striped bordered small data={data} />
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
     );
   }
 }

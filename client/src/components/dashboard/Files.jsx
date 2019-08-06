@@ -45,10 +45,6 @@ class Files extends Component {
     const { user } = this.props.auth;
     vusuario = user.id;
 
-    // const sFiles = { ...this.state.misFolders };
-    // console.log("this.state.misFolders");
-    // console.log(this.state.misFolders);
-
     let FilesRow = [];
     var n;
     var click = "";
@@ -101,55 +97,16 @@ class Files extends Component {
         }
       ],
       rows: FilesRow
-      /* [
-        //  FoldersRow
-
-        {
-          name2: "Tiger Nixon",
-          position: "System Architect"
-        }
-      ]*/
     };
 
     return (
-      <div style={{ topMargin: "200px", height: "45vh" }}>
-        <MDBContainer>
-          <MDBRow className="row justify-content-end">
-            <div className="row justify-content-end">
-              <MDBCol>
-                <MDBBtn color="elegant" onClick={this.NewFile}>
-                  + Nueva Carpeta
-                </MDBBtn>
-              </MDBCol>
-            </div>
-          </MDBRow>
-
-          <div className="row">
-            <div className="landing-copy col s12 center-align">
-              <h4>
-                <b>Hey there,</b> {user.name.split(" ")[0]}
-                <p className="flow-text grey-text text-darken-1">
-                  You are logged into a full-stack{" "}
-                  <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
-                </p>
-              </h4>
-              <MDBDataTable btn striped bordered small data={data} />
-              <button
-                style={{
-                  width: "150px",
-                  borderRadius: "3px",
-                  letterSpacing: "1.5px",
-                  marginTop: "1rem"
-                }}
-                onClick={this.onLogoutClick}
-                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-              >
-                Logout
-              </button>
-            </div>
-          </div>
-        </MDBContainer>
-      </div>
+      <MDBContainer>
+        <MDBRow>
+          <MDBCol md="12">
+            <MDBDataTable btn striped bordered small data={data} />
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
     );
   }
 }

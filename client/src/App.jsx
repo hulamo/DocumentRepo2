@@ -1,23 +1,13 @@
 import React, { Component } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  withRouter
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
-import { MDBContainer } from "mdbreact";
 
 import store from "./store";
 
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-
-import Header from "./components/layout/Header";
 import Navbar2 from "./components/layout/Navbar2";
 import Navbar from "./components/layout/Navbartp";
 import Margens from "./components/layout/Margens";
@@ -33,11 +23,10 @@ import NewFriend from "./components/dashboard/NewFriend";
 import Files from "./components/dashboard/Files";
 import "./App.css";
 
-var renderbar = true;
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
-  renderbar = true;
+
   const token = localStorage.jwtToken;
   setAuthToken(token);
   // Decode token and get user info and exp
@@ -52,7 +41,6 @@ if (localStorage.jwtToken) {
 
     // Redirect to login
     window.location.href = "./login";
-    renderbar = false;
   }
 }
 class App extends Component {
@@ -83,11 +71,5 @@ class App extends Component {
     );
   }
 }
-
-/*class App extends Component {
-  render() {
-    return <div>Prueba</div>;
-  }
-}*/
 
 export default App;
