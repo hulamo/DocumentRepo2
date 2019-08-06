@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
+import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
 /*
 <img
               src={process.env.PUBLIC_URL + "documentrepo.jpg"}
@@ -9,19 +9,30 @@ import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
               alt="aligment"
             />
 */
+
+/*
+<MDBRow>
+          <MDBCol md="6" className="mx-auto">
+            <img
+              src={process.env.PUBLIC_URL + "documentrepo.jpg"}
+              className="img-fluid mx-auto"
+              alt="aligment"
+            />
+          </MDBCol>
+        </MDBRow>
+*/
+
 class Landing extends Component {
   render() {
     return (
-      <MDBContainer>
-        <MDBRow className="mb-4">
-          <MDBCol md="6" className="mx-auto" />
-        </MDBRow>
-
+      <MDBContainer fluid>
         <MDBRow>
-          <MDBCol top md="6">
-            <MDBRow>
+          <MDBCol top md="6" style={{ backgroundColor: "#f5f3f3" }}>
+            <MDBRow middle>
               <MDBCol md="12">
-                <h2>¿Do You Need to Organize and Share Your Documents?</h2>
+                <div style={{ fontSize: "44px" }}>
+                  <strong>If You need to organize and share documents</strong>
+                </div>
               </MDBCol>
             </MDBRow>
             <br />
@@ -32,7 +43,9 @@ class Landing extends Component {
                   className="fas fa-user-friends"
                   style={{ fontSize: "34px", color: "green" }}
                 />
-                <li style={{ fontSize: "24px" }}>&nbsp; With Your Friends </li>
+                <strong style={{ fontSize: "28px", color: "black" }}>
+                  &nbsp; With your friends
+                </strong>
               </MDBCol>
             </MDBRow>
             <MDBRow>
@@ -41,7 +54,9 @@ class Landing extends Component {
                   className="fas fa-user-cog"
                   style={{ fontSize: "34px", color: "green" }}
                 />
-                <li style={{ fontSize: "24px" }}> &nbsp; With Your Team </li>
+                <strong style={{ fontSize: "28px", color: "black" }}>
+                  &nbsp;With your team
+                </strong>
               </MDBCol>
             </MDBRow>
             <MDBRow>
@@ -50,7 +65,9 @@ class Landing extends Component {
                   className="fas fa-user"
                   style={{ fontSize: "34px", color: "green" }}
                 />
-                <li style={{ fontSize: "24px" }}> &nbsp; Make them Public </li>
+                <strong style={{ fontSize: "28px", color: "black" }}>
+                  &nbsp;With everyone
+                </strong>
               </MDBCol>
             </MDBRow>
             <MDBRow>
@@ -59,45 +76,85 @@ class Landing extends Component {
                   className="fas fa-user-lock"
                   style={{ fontSize: "34px", color: "green" }}
                 />
-                <li style={{ fontSize: "24px" }}>&nbsp; Keep them Private </li>
+                <strong style={{ fontSize: "28px", color: "black" }}>
+                  &nbsp;Or keep them private
+                </strong>
               </MDBCol>
             </MDBRow>
             <br />
             <MDBRow>
               <MDBCol md="12">
-                <li style={{ fontSize: "44px" }}>
-                  You are in the right place...{" "}
-                </li>
+                <div style={{ fontSize: "44px" }}>
+                  You are in the right place...
+                </div>
               </MDBCol>
             </MDBRow>
           </MDBCol>
-          <MDBCol className="d-sm-block" md="6">
-            <div className="col s6">
-              <Link
-                to="/register"
-                style={{
-                  width: "140px",
-                  borderRadius: "3px",
-                  letterSpacing: "1.5px"
-                }}
-                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-              >
-                Register
-              </Link>
-            </div>
-            <div className="col s6">
-              <Link
-                to="/login"
-                style={{
-                  width: "140px",
-                  borderRadius: "3px",
-                  letterSpacing: "1.5px"
-                }}
-                className="btn btn-large btn-flat waves-effect white black-text"
-              >
-                Log In
-              </Link>
-            </div>
+          <MDBCol className="d-sm-block text-center" md="6" middle center>
+            <MDBRow>
+              <MDBCol md="12">
+                <br />
+              </MDBCol>
+            </MDBRow>
+            <MDBRow middle center>
+              <MDBCol md="6" center>
+                <i
+                  className="fas fa-book"
+                  style={{ fontSize: "54px", color: "green" }}
+                />
+                <strong style={{ fontSize: "40px", color: "green" }}>
+                  DocumentRepo
+                </strong>
+              </MDBCol>
+              <MDBCol md="6" center>
+                <MDBBtn rounded href="/login" size="lg" active color="green">
+                  Login
+                </MDBBtn>
+              </MDBCol>
+            </MDBRow>
+            <MDBRow>
+              <MDBCol md="12">
+                <br />
+              </MDBCol>
+            </MDBRow>
+            <MDBRow middle center>
+              <MDBCol md="12" center>
+                <strong style={{ fontSize: "34px" }}>
+                  Discover the best way to share your documents
+                </strong>
+              </MDBCol>
+            </MDBRow>
+            <MDBRow>
+              <MDBCol md="12">
+                <br />
+              </MDBCol>
+            </MDBRow>
+            <MDBRow>
+              <MDBCol md="12">
+                <MDBBtn
+                  rounded
+                  href="/register"
+                  size="lg"
+                  active
+                  color="success"
+                >
+                  Register
+                </MDBBtn>
+              </MDBCol>
+            </MDBRow>
+            <MDBRow>
+              <MDBCol md="12">
+                <br />
+              </MDBCol>
+            </MDBRow>
+
+            <MDBRow>
+              <MDBCol md="12">
+                <MDBBtn rounded href="/register" size="lg" active color="green">
+                  &nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;
+                </MDBBtn>
+              </MDBCol>
+            </MDBRow>
           </MDBCol>
         </MDBRow>
       </MDBContainer>

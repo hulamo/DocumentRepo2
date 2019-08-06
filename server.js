@@ -59,7 +59,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://hulamo:33128284@clust
 //const port = process.env.PORT || 5000;
 
 
-//app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public"));
 
 app.listen(PORT, () => {
     console.log(`🌎 ==> API server now on port ${PORT}!`);
