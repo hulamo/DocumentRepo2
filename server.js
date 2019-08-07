@@ -53,6 +53,14 @@ app.use("/api/users", users);
 app.use("/api/folders", folders);
 app.use("/api/files", files);
 
+app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname, "/client/public/index.html"), function(err) {
+        if (err) {
+            res.status(500).send(err)
+        }
+    })
+})
+
 mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://hulamo:33128284@cluster0-xjcwz.mongodb.net/test?retryWrites=true&w=majority");
 
 
