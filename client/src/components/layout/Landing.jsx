@@ -23,6 +23,16 @@ import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
 */
 
 class Landing extends Component {
+  onClickd = e => {
+    e.preventDefault();
+    window.location.href = "./login";
+  };
+
+  onClickr = e => {
+    e.preventDefault();
+    window.location.href = "./register";
+  };
+
   render() {
     return (
       <MDBContainer fluid>
@@ -107,7 +117,13 @@ class Landing extends Component {
                 </strong>
               </MDBCol>
               <MDBCol md="6">
-                <MDBBtn rounded href="/login" size="lg" active color="green">
+                <MDBBtn
+                  rounded
+                  onClick={this.onClickd}
+                  size="lg"
+                  active
+                  color="green"
+                >
                   Login
                 </MDBBtn>
               </MDBCol>
@@ -133,7 +149,7 @@ class Landing extends Component {
               <MDBCol md="12">
                 <MDBBtn
                   rounded
-                  href="/register"
+                  onClick={this.onClickr}
                   size="lg"
                   active
                   color="success"
@@ -150,7 +166,13 @@ class Landing extends Component {
 
             <MDBRow>
               <MDBCol md="12">
-                <MDBBtn rounded href="/register" size="lg" active color="green">
+                <MDBBtn
+                  rounded
+                  onClick={this.onClickd}
+                  size="lg"
+                  active
+                  color="green"
+                >
                   &nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;
                 </MDBBtn>
               </MDBCol>
