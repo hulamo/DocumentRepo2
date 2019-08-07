@@ -23,6 +23,30 @@ import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
 */
 
 class Landing extends Component {
+  state = {
+    redirect: false,
+    linkk: "/"
+  };
+  setRedirectl = () => {
+    this.setState({
+      redirect: true,
+      linkk: "/login"
+    });
+  };
+
+  setRedirectr = () => {
+    this.setState({
+      redirect: true,
+      linkk: "/register"
+    });
+  };
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to={this.state.linkk} />;
+    }
+  };
+
   onClickd = e => {
     e.preventDefault();
     // return <Redirect to="/login" />;
@@ -36,152 +60,161 @@ class Landing extends Component {
   };
 
   render() {
+    this.onClickr = e => {
+      e.preventDefault();
+      //window.location.href = "/register";
+      return <Redirect to="/login" />;
+    };
+
     return (
-      <MDBContainer fluid>
-        <MDBRow>
-          <MDBCol top md="6" style={{ backgroundColor: "#f5f3f3" }}>
-            <MDBRow middle>
-              <MDBCol md="12">
-                <div style={{ fontSize: "44px" }}>
-                  <strong>If You need to organize and share documents</strong>
-                </div>
-              </MDBCol>
-            </MDBRow>
-            <br />
+      <div>
+        {this.renderRedirect()}
+        <MDBContainer fluid>
+          <MDBRow>
+            <MDBCol top md="6" style={{ backgroundColor: "#f5f3f3" }}>
+              <MDBRow middle>
+                <MDBCol md="12">
+                  <div style={{ fontSize: "44px" }}>
+                    <strong>If You need to organize and share documents</strong>
+                  </div>
+                </MDBCol>
+              </MDBRow>
+              <br />
 
-            <MDBRow>
-              <MDBCol md="12">
-                <i
-                  className="fas fa-user-friends"
-                  style={{ fontSize: "34px", color: "green" }}
-                />
-                <strong style={{ fontSize: "28px", color: "black" }}>
-                  &nbsp; With your friends
-                </strong>
-              </MDBCol>
-            </MDBRow>
-            <MDBRow>
-              <MDBCol md="12">
-                <i
-                  className="fas fa-user-cog"
-                  style={{ fontSize: "34px", color: "green" }}
-                />
-                <strong style={{ fontSize: "28px", color: "black" }}>
-                  &nbsp;With your team
-                </strong>
-              </MDBCol>
-            </MDBRow>
-            <MDBRow>
-              <MDBCol md="12">
-                <i
-                  className="fas fa-user"
-                  style={{ fontSize: "34px", color: "green" }}
-                />
-                <strong style={{ fontSize: "28px", color: "black" }}>
-                  &nbsp;With everyone
-                </strong>
-              </MDBCol>
-            </MDBRow>
-            <MDBRow>
-              <MDBCol md="12">
-                <i
-                  className="fas fa-user-lock"
-                  style={{ fontSize: "34px", color: "green" }}
-                />
-                <strong style={{ fontSize: "28px", color: "black" }}>
-                  &nbsp;Or keep them private
-                </strong>
-              </MDBCol>
-            </MDBRow>
-            <br />
-            <MDBRow>
-              <MDBCol md="12">
-                <div style={{ fontSize: "44px" }}>
-                  You are in the right place...
-                </div>
-              </MDBCol>
-            </MDBRow>
-          </MDBCol>
-          <MDBCol className="d-sm-block text-center" md="6" middle>
-            <MDBRow>
-              <MDBCol md="12">
-                <br />
-              </MDBCol>
-            </MDBRow>
-            <MDBRow middle>
-              <MDBCol md="6">
-                <i
-                  className="fas fa-book"
-                  style={{ fontSize: "54px", color: "green" }}
-                />
-                <strong style={{ fontSize: "40px", color: "green" }}>
-                  DocumentRepo
-                </strong>
-              </MDBCol>
-              <MDBCol md="6">
-                <MDBBtn
-                  rounded
-                  onClick={this.onClickd}
-                  size="lg"
-                  active
-                  color="green"
-                >
-                  Login
-                </MDBBtn>
-              </MDBCol>
-            </MDBRow>
-            <MDBRow>
-              <MDBCol md="12">
-                <br />
-              </MDBCol>
-            </MDBRow>
-            <MDBRow middle>
-              <MDBCol md="12">
-                <strong style={{ fontSize: "34px" }}>
-                  Discover the best way to share your documents
-                </strong>
-              </MDBCol>
-            </MDBRow>
-            <MDBRow>
-              <MDBCol md="12">
-                <br />
-              </MDBCol>
-            </MDBRow>
-            <MDBRow>
-              <MDBCol md="12">
-                <MDBBtn
-                  rounded
-                  onClick={this.onClickr}
-                  size="lg"
-                  active
-                  color="success"
-                >
-                  Register
-                </MDBBtn>
-              </MDBCol>
-            </MDBRow>
-            <MDBRow>
-              <MDBCol md="12">
-                <br />
-              </MDBCol>
-            </MDBRow>
+              <MDBRow>
+                <MDBCol md="12">
+                  <i
+                    className="fas fa-user-friends"
+                    style={{ fontSize: "34px", color: "green" }}
+                  />
+                  <strong style={{ fontSize: "28px", color: "black" }}>
+                    &nbsp; With your friends
+                  </strong>
+                </MDBCol>
+              </MDBRow>
+              <MDBRow>
+                <MDBCol md="12">
+                  <i
+                    className="fas fa-user-cog"
+                    style={{ fontSize: "34px", color: "green" }}
+                  />
+                  <strong style={{ fontSize: "28px", color: "black" }}>
+                    &nbsp;With your team
+                  </strong>
+                </MDBCol>
+              </MDBRow>
+              <MDBRow>
+                <MDBCol md="12">
+                  <i
+                    className="fas fa-user"
+                    style={{ fontSize: "34px", color: "green" }}
+                  />
+                  <strong style={{ fontSize: "28px", color: "black" }}>
+                    &nbsp;With everyone
+                  </strong>
+                </MDBCol>
+              </MDBRow>
+              <MDBRow>
+                <MDBCol md="12">
+                  <i
+                    className="fas fa-user-lock"
+                    style={{ fontSize: "34px", color: "green" }}
+                  />
+                  <strong style={{ fontSize: "28px", color: "black" }}>
+                    &nbsp;Or keep them private
+                  </strong>
+                </MDBCol>
+              </MDBRow>
+              <br />
+              <MDBRow>
+                <MDBCol md="12">
+                  <div style={{ fontSize: "44px" }}>
+                    You are in the right place...
+                  </div>
+                </MDBCol>
+              </MDBRow>
+            </MDBCol>
+            <MDBCol className="d-sm-block text-center" md="6" middle>
+              <MDBRow>
+                <MDBCol md="12">
+                  <br />
+                </MDBCol>
+              </MDBRow>
+              <MDBRow middle>
+                <MDBCol md="6">
+                  <i
+                    className="fas fa-book"
+                    style={{ fontSize: "54px", color: "green" }}
+                  />
+                  <strong style={{ fontSize: "40px", color: "green" }}>
+                    DocumentRepo
+                  </strong>
+                </MDBCol>
+                <MDBCol md="6">
+                  <MDBBtn
+                    rounded
+                    onClick={this.setRedirectl}
+                    size="lg"
+                    active
+                    color="green"
+                  >
+                    Login
+                  </MDBBtn>
+                </MDBCol>
+              </MDBRow>
+              <MDBRow>
+                <MDBCol md="12">
+                  <br />
+                </MDBCol>
+              </MDBRow>
+              <MDBRow middle>
+                <MDBCol md="12">
+                  <strong style={{ fontSize: "34px" }}>
+                    Discover the best way to share your documents
+                  </strong>
+                </MDBCol>
+              </MDBRow>
+              <MDBRow>
+                <MDBCol md="12">
+                  <br />
+                </MDBCol>
+              </MDBRow>
+              <MDBRow>
+                <MDBCol md="12">
+                  <MDBBtn
+                    rounded
+                    onClick={this.setRedirectr}
+                    size="lg"
+                    active
+                    color="success"
+                  >
+                    Register
+                  </MDBBtn>
+                </MDBCol>
+              </MDBRow>
+              <MDBRow>
+                <MDBCol md="12">
+                  <br />
+                </MDBCol>
+              </MDBRow>
 
-            <MDBRow>
-              <MDBCol md="12">
-                <MDBBtn
-                  rounded
-                  onClick={this.onClickd}
-                  size="lg"
-                  active
-                  color="green"
-                >
-                  &nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;
-                </MDBBtn>
-              </MDBCol>
-            </MDBRow>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
+              <MDBRow>
+                <MDBCol md="12">
+                  <MDBBtn
+                    rounded
+                    onClick={this.setRedirectl}
+                    size="lg"
+                    active
+                    color="green"
+                  >
+                    &nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;
+                  </MDBBtn>
+                </MDBCol>
+              </MDBRow>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+      </div>
     );
   }
 }
