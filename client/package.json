@@ -6,7 +6,6 @@
     "dependencies": {
         "axios": "^0.18.0",
         "classnames": "^2.2.6",
-        "http-proxy-middleware": "^0.19.1",
         "jwt-decode": "^2.2.0",
         "mdbreact": "file:mdbreact-4.18.1.tgz",
         "react": "^16.6.3",
