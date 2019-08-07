@@ -1,5 +1,16 @@
 import React, { Component } from "react";
-import { MDBDataTable, MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
+import {
+  MDBIcon,
+  MDBDataTable,
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBBtn,
+  MDBModal,
+  MDBModalBody,
+  MDBModalHeader,
+  MDBModalFooter
+} from "mdbreact";
 
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -16,9 +27,27 @@ class Dashboard extends Component {
 
     this.state = {
       misFolders: [],
-      user: ""
+      user: "",
+      modal14: false,
+      folder: "",
+      foldername: ""
     };
+    this.onClick = this.onClick.bind(this);
+    // this.props.onClick = this.props.onClick.bind(this, this.props.name);
   }
+
+  toggle = (nr, varp, foldername) => () => {
+    let modalNumber = "modal" + nr;
+    this.setState({
+      [modalNumber]: !this.state[modalNumber],
+      folder: varp,
+      foldername: foldername
+    });
+  };
+
+  onClick = e => {
+    console.log("valor" + e.target.className);
+  };
 
   onLogoutClick = e => {
     e.preventDefault();
@@ -70,9 +99,38 @@ class Dashboard extends Component {
         foldername: this.state.misFolders[n].foldername,
         description: this.state.misFolders[n].description,
         handle: (
-          <MDBBtn color="green" rounded size="sm">
-            Abrir
-          </MDBBtn>
+          <MDBRow>
+            <MDBCol md="2" />
+            <MDBCol md="10">
+              <MDBIcon
+                onClick={this.onClick}
+                icon="folder-open"
+                size="2x"
+                color=""
+                className={"Open-" + varp}
+              />
+              &nbsp;&nbsp;
+              <MDBIcon
+                onClick={this.onClick}
+                icon="pen"
+                size="2x"
+                color=""
+                className={"Edit-" + varp}
+              />
+              &nbsp;&nbsp;
+              <MDBIcon
+                onClick={this.toggle(
+                  14,
+                  varp,
+                  this.state.misFolders[n].foldername
+                )}
+                icon="trash-alt"
+                size="2x"
+                color=""
+                className={"Delete-" + varp}
+              />
+            </MDBCol>
+          </MDBRow>
         ),
         clickEvent: () => this.handleRowClick(varp)
       };
@@ -87,19 +145,19 @@ class Dashboard extends Component {
     const data = {
       columns: [
         {
-          label: "Nombre del Folder",
+          label: "Folder Name",
           field: "foldername",
           sort: "asc",
           width: 150
         },
         {
-          label: "Descripción",
+          label: "Folder Description",
           field: "description",
           sort: "asc",
           width: 270
         },
         {
-          label: "Accion",
+          label: "Action",
           field: "accion",
           sort: "asc",
           width: 150
@@ -110,9 +168,28 @@ class Dashboard extends Component {
 
     return (
       <MDBContainer>
+        <MDBModal isOpen={this.state.modal14} toggle={this.toggle(14)} centered>
+          <MDBModalHeader toggle={this.toggle(14)}>
+            Are You Sure You Want to Delete?
+          </MDBModalHeader>
+          <MDBModalBody>Folder: &nbsp; {this.state.foldername}</MDBModalBody>
+          <MDBModalFooter>
+            <MDBBtn color="secondary" onClick={this.toggle(14)}>
+              Close
+            </MDBBtn>
+            <MDBBtn color="primary">Delete</MDBBtn>
+          </MDBModalFooter>
+        </MDBModal>
         <MDBRow>
           <MDBCol md="12">
-            <MDBDataTable btn striped bordered small data={data} />
+            <MDBDataTable
+              searchLabel="Search Folder"
+              btn
+              striped
+              bordered
+              small
+              data={data}
+            />
           </MDBCol>
         </MDBRow>
       </MDBContainer>
@@ -133,3 +210,39 @@ export default connect(
   mapStateToProps,
   { logoutUser }
 )(Dashboard);
+
+/*
+
+              <MDBBtn
+                value={"folders/view" + varp}
+                id={"abre" + n}
+                onClick={this.onClick}
+                color="green"
+                rounded
+                size="sm"
+              >
+                Open
+              </MDBBtn>
+              &nbsp;&nbsp;
+              <MDBBtn
+                value={"folders/edit" + varp}
+                id={"edit" + n}
+                onClick={this.onClick}
+                color="yellow"
+                rounded
+                size="sm"
+              >
+                Edit
+              </MDBBtn>
+              &nbsp;&nbsp;
+              <MDBBtn
+                value={"folders/delete" + varp}
+                id={"delete" + n}
+                onClick={this.onClick}
+                color="red"
+                rounded
+                size="sm"
+              >
+                Delete
+              </MDBBtn>
+*/
