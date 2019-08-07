@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
+import { Redirect } from "react-router-dom";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
 /*
 <img
@@ -25,12 +25,14 @@ import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
 class Landing extends Component {
   onClickd = e => {
     e.preventDefault();
-    window.location.href = "./login";
+    // return <Redirect to="/login" />;
+    window.location.href = "/login";
   };
 
   onClickr = e => {
     e.preventDefault();
-    window.location.href = "./register";
+    window.location.href = "/register";
+    //return <Redirect to="/login" />;
   };
 
   render() {
