@@ -174,10 +174,10 @@ class Dashboard extends Component {
           </MDBModalHeader>
           <MDBModalBody>Folder: &nbsp; {this.state.foldername}</MDBModalBody>
           <MDBModalFooter>
-            <MDBBtn color="secondary" onClick={this.toggle(14)}>
+            <MDBBtn color="dark-green" onClick={this.toggle(14)}>
               Close
             </MDBBtn>
-            <MDBBtn color="primary">Delete</MDBBtn>
+            <MDBBtn color="red">Delete</MDBBtn>
           </MDBModalFooter>
         </MDBModal>
         <MDBRow>
