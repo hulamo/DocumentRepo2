@@ -15,7 +15,7 @@ const app = express();
 
 // Bodyparser middleware
 app.use(
-    bodyparser.urlencoded({
+    bodyParser.urlencoded({
         extended: true
     })
 );
