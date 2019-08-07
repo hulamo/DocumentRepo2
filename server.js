@@ -23,10 +23,21 @@ app.use(bodyParser.json());
 
 // DB Config
 const db = require("./config/keys").mongoURI;
-
+/*
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
+}
+*/
+if (process.env.NODE_ENV === 'production') {
+    // Exprees will serve up production assets
+    app.use(express.static('client/build'));
+
+    // Express serve up index.html file if it doesn't recognize route
+    const path = require('path');
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
 }
 
 
@@ -52,16 +63,16 @@ app.use("/api/users", users);
 
 app.use("/api/folders", folders);
 app.use("/api/files", files);
-
+/*
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, "/client/public/index.html"), function(err) {
         if (err) {
             res.status(500).send(err)
         }
     })
-})
+}) */
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://hulamo:33128284@cluster0-xjcwz.mongodb.net/test?retryWrites=true&w=majority");
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://hulamo:33128284@cluster0-xjcwz.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true });
 
 
 //const port = process.env.PORT || 5000;
