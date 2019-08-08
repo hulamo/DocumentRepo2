@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { updateFolder } from "../../actions/authActions";
 import axios from "axios";
 import {
   MDBIcon,
@@ -19,7 +18,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import API from "./../../actions/API";
 import { logoutUser } from "../../actions/authActions";
-import ModalDelete from "../modals/";
+
 //var userp = "";
 
 //const misFolders = [];
@@ -38,6 +37,7 @@ class Dashboard extends Component {
       description: "",
       idv: ""
     };
+    this.onSubmit = this.onSubmit.bind(this);
     this.onClick = this.onClick.bind(this);
     this.onChange = this.onChange.bind(this);
     // this.props.onClick = this.props.onClick.bind(this, this.props.name);
@@ -71,11 +71,11 @@ class Dashboard extends Component {
     console.log("valor" + e.target.className);
   };
 
-  onLogoutClick = e => {
+  /*onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
   };
-
+*/
   deleteFolder = idv => {
     //console.log("prueba");
     //console.log("idvlllllllllllllllllllllllll" + idv);
@@ -115,13 +115,13 @@ class Dashboard extends Component {
   onSubmit = e => {
     e.preventDefault();
     console.log("submit");
-    const data = {
+    const data2 = {
       foldername: this.state.foldername,
       description: this.state.description
     };
 
     axios
-      .put("/api/folders/update/" + this.state.idv, data, {
+      .put("/api/folders/update/" + this.state.idv, data2, {
         // receive two    parameter endpoint url ,form data
       })
       .then(res => {

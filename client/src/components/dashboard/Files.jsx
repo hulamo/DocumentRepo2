@@ -1,6 +1,18 @@
 import React, { Component } from "react";
-import { MDBDataTable, MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
-
+import {
+  MDBDataTable,
+  MDBIcon,
+  MDBModal,
+  MDBModalBody,
+  MDBModalHeader,
+  MDBModalFooter,
+  MDBInput,
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBBtn
+} from "mdbreact";
+import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import API from "../../actions/API";
@@ -15,8 +27,19 @@ class Files extends Component {
     super(props);
 
     this.state = {
-      misFiles: []
+      misFiles: [],
+      user: "",
+      modal14: false,
+      modal15: false,
+      folder: "",
+      filename: "",
+      filedescription: "",
+      idv: ""
     };
+
+    this.onSubmit = this.onSubmit.bind(this);
+    this.onClick = this.onClick.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
   onLogoutClick = e => {
