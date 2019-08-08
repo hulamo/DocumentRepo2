@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { logoutUser } from "../../actions/authActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -89,16 +89,16 @@ class Navbar2 extends Component {
                   </MDBDropdownToggle>
                   <MDBDropdownMenu>
                     <MDBDropdownItem>
-                      <MDBNavLink to="/contacts">New Folder</MDBNavLink>
+                      <Link to="/newfolder">New Folder</Link>
                     </MDBDropdownItem>
                     <MDBDropdownItem>
-                      <MDBNavLink to="/newfile">New File</MDBNavLink>
+                      <Link to="/newfile">New File</Link>
                     </MDBDropdownItem>
                     <MDBDropdownItem>
-                      <MDBNavLink to="/">New Link</MDBNavLink>
+                      <Link to="/">New Link</Link>
                     </MDBDropdownItem>
                     <MDBDropdownItem>
-                      <MDBNavLink to="/newfriend">New Contact</MDBNavLink>
+                      <Link to="/newfriend">New Contact</Link>
                     </MDBDropdownItem>
                   </MDBDropdownMenu>
                 </MDBDropdown>
