@@ -43,7 +43,28 @@ router.get("/folder/:userid", (req, res) => {
 
 });
 
+router.delete("/delete/:idv", (req, res) => {
+    Folder
+        .findById({ _id: req.params.idv })
+        .then(dbModel => dbModel.remove())
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
 
+});
+/*
+router.delete("/delete/:idv", (req, res) => {
+    console.log("id" + req.params.idv)
+    Folder.findByIdAndDelete({ "id": req.params.idv })
+        /*let id = ObjectID(req.params.idv);
+
+        Folder.deleteOne(id, (err) => {
+            if (err) {
+                throw err;
+            }
+
+            res.send('user deleted');
+        });*/
+//});
 
 module.exports = router;
 

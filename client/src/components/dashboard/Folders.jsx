@@ -30,18 +30,20 @@ class Dashboard extends Component {
       user: "",
       modal14: false,
       folder: "",
-      foldername: ""
+      foldername: "",
+      idv: ""
     };
     this.onClick = this.onClick.bind(this);
     // this.props.onClick = this.props.onClick.bind(this, this.props.name);
   }
 
-  toggle = (nr, varp, foldername) => () => {
+  toggle = (nr, varp, foldername, idv) => () => {
     let modalNumber = "modal" + nr;
     this.setState({
       [modalNumber]: !this.state[modalNumber],
       folder: varp,
-      foldername: foldername
+      foldername: foldername,
+      idv: idv
     });
   };
 
@@ -54,6 +56,21 @@ class Dashboard extends Component {
     this.props.logoutUser();
   };
 
+  deleteFolder = idv => {
+    //console.log("prueba");
+    //console.log("idvlllllllllllllllllllllllll" + idv);
+    API.deleteFolder(idv)
+      .then(res => {
+        this.setState({
+          modal14: false
+        });
+
+        this.componentDidMount();
+      })
+      .catch(err => console.log(err));
+
+    //console.log("borrrar");
+  };
   //when this component mounts, grab all books that were save to the database
   componentDidMount() {
     API.getFolder(vusuario)
@@ -62,7 +79,7 @@ class Dashboard extends Component {
   }
 
   NewFolder = () => {
-    console.log("Redirect");
+    //console.log("Redirect");
     this.props.history.push("/newfolder");
     //return <Redirect to="/newfolder" />;
   };
@@ -80,8 +97,8 @@ class Dashboard extends Component {
     //console.log(this.state.savedFolders);
     //userp = user.id;
 
-    console.log("this.state.misFolders");
-    console.log(this.state.misFolders);
+    // *console.log("this.state.misFolders");
+    //*console.log(this.state.misFolders);
 
     let FoldersRow = [];
     var n;
@@ -94,7 +111,7 @@ class Dashboard extends Component {
         "clickEvent: this.handleRowClick(" + this.state.misFolders[n]._id + ")";
       let varp = "";
       varp = this.state.misFolders[n]._id;
-      console.log(varp);
+      // console.log(varp);
       temporal = {
         foldername: this.state.misFolders[n].foldername,
         description: this.state.misFolders[n].description,
@@ -122,7 +139,8 @@ class Dashboard extends Component {
                 onClick={this.toggle(
                   14,
                   varp,
-                  this.state.misFolders[n].foldername
+                  this.state.misFolders[n].foldername,
+                  this.state.misFolders[n]._id
                 )}
                 icon="trash-alt"
                 size="2x"
@@ -134,13 +152,13 @@ class Dashboard extends Component {
         ),
         clickEvent: () => this.handleRowClick(varp)
       };
-      console.log("temporal");
-      console.log(temporal);
+      //console.log("temporal");
+      //console.log(temporal);
       FoldersRow.push(temporal);
     }
 
-    console.log("FoldersRow");
-    console.log(FoldersRow);
+    //console.log("FoldersRow");
+    //console.log(FoldersRow);
 
     const data = {
       columns: [
@@ -177,7 +195,15 @@ class Dashboard extends Component {
             <MDBBtn color="dark-green" onClick={this.toggle(14)}>
               Close
             </MDBBtn>
-            <MDBBtn color="red">Delete</MDBBtn>
+            <MDBBtn
+              color="red"
+              onClick={e => {
+                e.preventDefault();
+                this.deleteFolder(this.state.idv);
+              }}
+            >
+              Delete
+            </MDBBtn>
           </MDBModalFooter>
         </MDBModal>
         <MDBRow>

@@ -29,6 +29,11 @@ export default {
     
     }
     */
+    deleteFolder: function(id) {
+        console.log(id);
+        return axios.delete("/api/folders/delete/" + id);
+    },
+
 
     getFolder: function(id) {
         console.log(id);

@@ -88,13 +88,17 @@ class Navbar2 extends Component {
                     <span className="mr-2">Add</span>
                   </MDBDropdownToggle>
                   <MDBDropdownMenu>
-                    <MDBDropdownItem href="/newfolder">
-                      New Folder
+                    <MDBDropdownItem>
+                      <MDBNavLink to="/contacts">New Folder</MDBNavLink>
                     </MDBDropdownItem>
-                    <MDBDropdownItem href="/newfile">New File</MDBDropdownItem>
-                    <MDBDropdownItem href="#!">New Link</MDBDropdownItem>
-                    <MDBDropdownItem href="/newfriend">
-                      New Contact
+                    <MDBDropdownItem>
+                      <MDBNavLink to="/newfile">New File</MDBNavLink>
+                    </MDBDropdownItem>
+                    <MDBDropdownItem>
+                      <MDBNavLink to="/">New Link</MDBNavLink>
+                    </MDBDropdownItem>
+                    <MDBDropdownItem>
+                      <MDBNavLink to="/newfriend">New Contact</MDBNavLink>
                     </MDBDropdownItem>
                   </MDBDropdownMenu>
                 </MDBDropdown>
