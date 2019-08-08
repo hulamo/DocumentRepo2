@@ -130,6 +130,23 @@ router.get("/file/:userid", (req, res) => {
 });
 
 
+router.delete("/delete/:idv", (req, res) => {
+    File
+        .findById({ _id: req.params.idv })
+        .then(dbModel => dbModel.remove())
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+
+});
+
+router.put("/update/:idv", (req, res) => {
+    console.log(req.body);
+    File
+        .findOneAndUpdate({ _id: req.params.idv }, req.body)
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+
+});
 
 module.exports = router;
 

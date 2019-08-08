@@ -40,8 +40,16 @@ export default {
         return axios.get("/api/folders/folder/" + id);
     },
 
+    deleteFile: function(id) {
+        console.log(id);
+        return axios.delete("/api/files/delete/" + id);
+    },
+
     getFile: function(id) {
         console.log(id);
         return axios.get("/api/files/file/" + id);
     }
+
+
+
 }

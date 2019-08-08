@@ -31,16 +31,58 @@ class Files extends Component {
       user: "",
       modal14: false,
       modal15: false,
-      folder: "",
+      file: "",
       filename: "",
       filedescription: "",
       idv: ""
     };
 
-    this.onSubmit = this.onSubmit.bind(this);
+    //    this.onSubmit = this.onSubmit.bind(this);
     this.onClick = this.onClick.bind(this);
-    this.onChange = this.onChange.bind(this);
+    //  this.onChange = this.onChange.bind(this);
   }
+
+  togglem = (nr, varp, filedescription, filename, idv) => () => {
+    console.log("description" + filedescription);
+    let modalNumber = "modal" + nr;
+    this.setState({
+      [modalNumber]: !this.state[modalNumber],
+      file: varp,
+      filename: filename,
+      filedescription: filedescription,
+      idv: idv
+    });
+  };
+
+  toggle = (nr, varp, filename, idv) => () => {
+    let modalNumber = "modal" + nr;
+    this.setState({
+      [modalNumber]: !this.state[modalNumber],
+      file: varp,
+      filename: filename,
+      idv: idv
+    });
+  };
+
+  onClick = e => {
+    console.log("valor" + e.target.className);
+  };
+
+  deleteFile = idv => {
+    //console.log("prueba");
+    //console.log("idvlllllllllllllllllllllllll" + idv);
+    API.deleteFile(idv)
+      .then(res => {
+        this.setState({
+          modal14: false
+        });
+
+        this.componentDidMount();
+      })
+      .catch(err => console.log(err));
+
+    //console.log("borrrar");
+  };
 
   onLogoutClick = e => {
     e.preventDefault();
@@ -64,6 +106,32 @@ class Files extends Component {
     console.log(nid);
   };
 
+  onChange = e => {
+    this.setState({ [e.target.id]: e.target.value });
+  };
+
+  onSubmit = e => {
+    e.preventDefault();
+    console.log("submit");
+    const data2 = {
+      filename: this.state.filename,
+      filedescription: this.state.filedescription
+    };
+
+    axios
+      .put("/api/files/update/" + this.state.idv, data2, {
+        // receive two    parameter endpoint url ,form data
+      })
+      .then(res => {
+        this.setState({
+          modal15: false
+        });
+
+        this.componentDidMount();
+      })
+      .catch(err => console.log(err));
+  };
+
   render() {
     const { user } = this.props.auth;
     vusuario = user.id;
@@ -84,9 +152,45 @@ class Files extends Component {
         filename: this.state.misFiles[n].filename,
         filedescription: this.state.misFiles[n].filedescription,
         handle: (
-          <MDBBtn color="green" rounded size="sm">
-            Abrir
-          </MDBBtn>
+          <MDBRow>
+            <MDBCol md="2" />
+            <MDBCol md="10">
+              <MDBIcon
+                onClick={this.onClick}
+                icon="folder-open"
+                size="2x"
+                color=""
+                className={"Open-" + varp}
+              />
+              &nbsp;&nbsp;
+              <MDBIcon
+                onClick={this.togglem(
+                  15,
+                  varp,
+                  this.state.misFiles[n].filedescription,
+                  this.state.misFiles[n].filename,
+                  this.state.misFiles[n]._id
+                )}
+                icon="pen"
+                size="2x"
+                color=""
+                className={"Edit-" + varp}
+              />
+              &nbsp;&nbsp;
+              <MDBIcon
+                onClick={this.toggle(
+                  14,
+                  varp,
+                  this.state.misFiles[n].filename,
+                  this.state.misFiles[n]._id
+                )}
+                icon="trash-alt"
+                size="2x"
+                color=""
+                className={"Delete-" + varp}
+              />
+            </MDBCol>
+          </MDBRow>
         ),
         clickEvent: () => this.handleRowClick(varp)
       };
@@ -124,9 +228,72 @@ class Files extends Component {
 
     return (
       <MDBContainer>
+        <form noValidate onSubmit={this.onSubmit}>
+          <MDBModal
+            isOpen={this.state.modal15}
+            toggle={this.togglem(15)}
+            centered
+          >
+            <MDBModalHeader toggle={this.togglem(15)}>
+              Modificar Carpeta
+            </MDBModalHeader>
+
+            <MDBModalBody>
+              <MDBInput id="idv" type="hidden" value={this.state.idv} />
+              <MDBInput
+                id="filename"
+                label="File Name"
+                onChange={this.onChange}
+                value={this.state.filename}
+              />
+              <MDBInput
+                id="filedescription"
+                label="File Description"
+                value={this.state.filedescription}
+                onChange={this.onChange}
+              />
+            </MDBModalBody>
+
+            <MDBModalFooter>
+              <MDBBtn color="blue" onClick={this.togglem(15)}>
+                Close
+              </MDBBtn>
+              <MDBBtn color="success" type="submit">
+                Modify
+              </MDBBtn>
+            </MDBModalFooter>
+          </MDBModal>
+        </form>
+        <MDBModal isOpen={this.state.modal14} toggle={this.toggle(14)} centered>
+          <MDBModalHeader toggle={this.toggle(14)}>
+            Are You Sure You Want to Delete?
+          </MDBModalHeader>
+          <MDBModalBody>File: &nbsp; {this.state.filename}</MDBModalBody>
+          <MDBModalFooter>
+            <MDBBtn color="blue" onClick={this.toggle(14)}>
+              Close
+            </MDBBtn>
+            <MDBBtn
+              color="red"
+              onClick={e => {
+                e.preventDefault();
+                this.deleteFile(this.state.idv);
+              }}
+            >
+              Delete
+            </MDBBtn>
+          </MDBModalFooter>
+        </MDBModal>
         <MDBRow>
           <MDBCol md="12">
-            <MDBDataTable btn striped bordered small data={data} />
+            <MDBDataTable
+              searchLabel="Search File"
+              btn
+              striped
+              bordered
+              small
+              data={data}
+            />
           </MDBCol>
         </MDBRow>
       </MDBContainer>
