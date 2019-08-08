@@ -51,6 +51,15 @@ router.delete("/delete/:idv", (req, res) => {
         .catch(err => res.status(422).json(err));
 
 });
+
+router.put("/update/:idv", (req, res) => {
+    console.log(req.body);
+    Folder
+        .findOneAndUpdate({ _id: req.params.idv }, req.body)
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+
+});
 /*
 router.delete("/delete/:idv", (req, res) => {
     console.log("id" + req.params.idv)

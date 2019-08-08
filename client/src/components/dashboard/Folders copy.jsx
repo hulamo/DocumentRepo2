@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { updateFolder } from "../../actions/authActions";
-import axios from "axios";
 import {
   MDBIcon,
   MDBDataTable,
@@ -11,15 +9,14 @@ import {
   MDBModal,
   MDBModalBody,
   MDBModalHeader,
-  MDBModalFooter,
-  MDBInput
+  MDBModalFooter
 } from "mdbreact";
 
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import API from "./../../actions/API";
 import { logoutUser } from "../../actions/authActions";
-import ModalDelete from "../modals/";
+
 //var userp = "";
 
 //const misFolders = [];
@@ -32,31 +29,14 @@ class Dashboard extends Component {
       misFolders: [],
       user: "",
       modal14: false,
-      modal15: false,
       folder: "",
       foldername: "",
-      description: "",
       idv: ""
     };
     this.onClick = this.onClick.bind(this);
-    this.onChange = this.onChange.bind(this);
     // this.props.onClick = this.props.onClick.bind(this, this.props.name);
   }
 
-  // Modal de Modificar
-  togglem = (nr, varp, description, foldername, idv) => () => {
-    console.log("description" + description);
-    let modalNumber = "modal" + nr;
-    this.setState({
-      [modalNumber]: !this.state[modalNumber],
-      folder: varp,
-      foldername: foldername,
-      description: description,
-      idv: idv
-    });
-  };
-
-  // Modal de Borrar
   toggle = (nr, varp, foldername, idv) => () => {
     let modalNumber = "modal" + nr;
     this.setState({
@@ -108,32 +88,6 @@ class Dashboard extends Component {
     console.log(nid);
   };
 
-  onChange = e => {
-    this.setState({ [e.target.id]: e.target.value });
-  };
-
-  onSubmit = e => {
-    e.preventDefault();
-    console.log("submit");
-    const data = {
-      foldername: this.state.foldername,
-      description: this.state.description
-    };
-
-    axios
-      .put("/api/folders/update/" + this.state.idv, data, {
-        // receive two    parameter endpoint url ,form data
-      })
-      .then(res => {
-        this.setState({
-          modal15: false
-        });
-
-        this.componentDidMount();
-      })
-      .catch(err => console.log(err));
-  };
-
   render() {
     const { user } = this.props.auth;
     // this.state.user =  user.id ;
@@ -174,13 +128,7 @@ class Dashboard extends Component {
               />
               &nbsp;&nbsp;
               <MDBIcon
-                onClick={this.togglem(
-                  15,
-                  varp,
-                  this.state.misFolders[n].description,
-                  this.state.misFolders[n].foldername,
-                  this.state.misFolders[n]._id
-                )}
+                onClick={this.onClick}
                 icon="pen"
                 size="2x"
                 color=""
@@ -238,49 +186,13 @@ class Dashboard extends Component {
 
     return (
       <MDBContainer>
-        <form noValidate onSubmit={this.onSubmit}>
-          <MDBModal
-            isOpen={this.state.modal15}
-            toggle={this.togglem(15)}
-            centered
-          >
-            <MDBModalHeader toggle={this.togglem(15)}>
-              Modificar Carpeta
-            </MDBModalHeader>
-
-            <MDBModalBody>
-              <MDBInput id="idv" type="hidden" value={this.state.idv} />
-              <MDBInput
-                id="foldername"
-                label="Folder Name"
-                onChange={this.onChange}
-                value={this.state.foldername}
-              />
-              <MDBInput
-                id="description"
-                label="Folder Description"
-                value={this.state.description}
-                onChange={this.onChange}
-              />
-            </MDBModalBody>
-
-            <MDBModalFooter>
-              <MDBBtn color="blue" onClick={this.togglem(15)}>
-                Close
-              </MDBBtn>
-              <MDBBtn color="success" type="submit">
-                Modify
-              </MDBBtn>
-            </MDBModalFooter>
-          </MDBModal>
-        </form>
         <MDBModal isOpen={this.state.modal14} toggle={this.toggle(14)} centered>
           <MDBModalHeader toggle={this.toggle(14)}>
             Are You Sure You Want to Delete?
           </MDBModalHeader>
           <MDBModalBody>Folder: &nbsp; {this.state.foldername}</MDBModalBody>
           <MDBModalFooter>
-            <MDBBtn color="blue" onClick={this.toggle(14)}>
+            <MDBBtn color="dark-green" onClick={this.toggle(14)}>
               Close
             </MDBBtn>
             <MDBBtn

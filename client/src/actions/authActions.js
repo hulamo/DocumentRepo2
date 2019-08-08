@@ -34,6 +34,19 @@ export const newFolder = (userData, history) => dispatch => {
 };
 
 
+export const upadateFolder = (userData, history) => dispatch => {
+    axios
+        .post("/api/folders/newfolder", userData)
+        .then(res => history.push("/folders"))
+        .catch(err =>
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        );
+};
+
+
 export const newFriend = (userData, history) => dispatch => {
     axios
         .post("/api/friends/newfriend", userData)
