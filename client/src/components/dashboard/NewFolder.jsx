@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { newFolder } from "../../actions/authActions";
 import classnames from "classnames";
 import { MDBInput, MDBContainer, MDBCol, MDBRow, MDBBtn } from "mdbreact";
+import Navbar2 from "../layout/Navbar2";
 
 //const usuario = this.props.auth;
 var vusuario = "";
@@ -59,6 +60,7 @@ class NewFolder extends Component {
 
     return (
       <MDBContainer>
+        <Navbar2 titulo="New Folder" />
         <MDBRow>
           <MDBCol md="6">
             <form noValidate onSubmit={this.onSubmit}>

@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { newFriend } from "../../actions/authActions";
 import classnames from "classnames";
 import { MDBInput, MDBContainer, MDBCol, MDBRow, MDBBtn } from "mdbreact";
-
+import Navbar2 from "../layout/Navbar2";
 //const usuario = this.props.auth;
 var vusuario = "";
 
@@ -59,6 +59,7 @@ class NewFriend extends Component {
 
     return (
       <MDBContainer>
+        <Navbar2 titulo="New Conctact" />
         <MDBRow>
           <MDBCol md="6">
             <form noValidate onSubmit={this.onSubmit}>

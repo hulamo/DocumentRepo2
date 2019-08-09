@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import API from "./../../actions/API";
 import { newFile } from "../../actions/authActions";
-
+import Navbar2 from "../layout/Navbar2";
 import axios from "axios";
 import {
   MDBInput,
@@ -142,6 +142,7 @@ class NewFile extends Component {
 
     return (
       <MDBContainer>
+        <Navbar2 titulo="New File" />
         <MDBRow>
           <MDBCol md="6">
             <form

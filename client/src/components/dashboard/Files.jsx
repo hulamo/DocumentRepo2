@@ -13,6 +13,7 @@ import {
   MDBBtn
 } from "mdbreact";
 
+import Navbar2 from "../layout/Navbar2";
 import { withRouter, Link } from "react-router-dom";
 
 import axios from "axios";
@@ -38,7 +39,8 @@ class Files extends Component {
       filename: "",
       filedescription: "",
       fileglink: "",
-      idv: ""
+      idv: "",
+      nombrefolder: ""
     };
 
     //    this.onSubmit = this.onSubmit.bind(this);
@@ -97,6 +99,8 @@ class Files extends Component {
   componentDidMount() {
     console.log("folderpasado" + this.props.folderid);
     if (this.props.hayfolder === true) {
+      this.setState({ nombrefolder: this.props.foldertemp });
+
       API.getFilef(vusuario, this.props.folderid)
         .then(res => {
           console.log("res-data" + res.data);
@@ -105,6 +109,7 @@ class Files extends Component {
         })
         .catch(err => console.log(err));
     } else {
+      this.setState({ nombrefolder: "All Files" });
       API.getFile(vusuario)
         .then(res => {
           console.log("res-data" + res.data);
@@ -255,6 +260,7 @@ class Files extends Component {
 
     return (
       <MDBContainer>
+        <Navbar2 titulo={this.state.nombrefolder} />
         <form noValidate onSubmit={this.onSubmit}>
           <MDBModal
             isOpen={this.state.modal15}

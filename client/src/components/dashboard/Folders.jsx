@@ -264,7 +264,7 @@ class Dashboard extends Component {
 
     return (
       <MDBContainer>
-        <Navbar2 />
+        <Navbar2 titulo="Folders" />
         <form noValidate onSubmit={this.onSubmit}>
           <MDBModal
             isOpen={this.state.modal15}

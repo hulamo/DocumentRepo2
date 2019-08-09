@@ -79,8 +79,11 @@ class Navbar2 extends Component {
               <strong className="white-text">{user.name}</strong>
             </MDBNavbarBrand>
 
-            <MDBNavbarNav left />
-
+            <MDBNavbarNav left>
+              <MDBNavItem>
+                <strong className="white-text"> /{this.props.titulo} </strong>
+              </MDBNavItem>
+            </MDBNavbarNav>
             <MDBNavbarNav right>
               <MDBNavItem>
                 <MDBDropdown>
