@@ -2,20 +2,11 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import API from "./../../actions/API";
+
 import { newFile } from "../../actions/authActions";
 
 import axios from "axios";
-import {
-  MDBInput,
-  MDBSelect,
-  MDBContainer,
-  MDBCol,
-  MDBRow,
-  MDBBtn,
-  MDBSelectInput,
-  MDBSelectOption
-} from "mdbreact";
+import { MDBInput, MDBContainer, MDBCol, MDBRow, MDBBtn } from "mdbreact";
 
 //const usuario = this.props.auth;
 var vusuario = "";
@@ -27,11 +18,8 @@ class NewFile extends Component {
       user: vusuario,
       filename: "",
       description: "",
-      folder: "",
       file: "",
-      filelink: "",
-      misFolders: [],
-      options: []
+      filelink: ""
     };
 
     this.onChangef = this.onChangef.bind(this);
@@ -42,23 +30,6 @@ class NewFile extends Component {
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/newfile");
     }
-
-    API.getFolder(vusuario)
-      .then(res => {
-        this.setState({ misFolders: res.data });
-      })
-      .then(res => {
-        let n = 0;
-
-        for (n = 0; n < this.state.misFolders.length; n++) {
-          this.state.options.push({
-            key: n,
-            value: this.state.misFolders[n]._id,
-            text: this.state.misFolders[n].foldername
-          });
-        }
-      })
-      .catch(err => console.log(err));
   }
 
   componentWillReceiveProps(nextProps) {
@@ -71,11 +42,6 @@ class NewFile extends Component {
 
   onChange = e => {
     this.setState({ [e.target.id]: e.target.value });
-  };
-
-  onChanged = e => {
-    console.log("folder2" + e);
-    this.setState({ folder: e });
   };
 
   onChangef = e => {
@@ -94,8 +60,7 @@ class NewFile extends Component {
     data.append("filename", this.state.filename);
     data.append("filelink", this.state.filelink);
     data.append("filedescription", this.state.description);
-    data.append("folder", this.state.folder);
-    console.log("folder" + this.state.folder);
+
     axios
       .post("/api/files/add", data, {
         // receive two    parameter endpoint url ,form data
@@ -113,28 +78,8 @@ class NewFile extends Component {
 
   render() {
     const { user } = this.props.auth;
-    var n = 0;
-
-    var temporal = "<div><select className='browser-default custom-select'>";
-    temporal = temporal + " </select></div> ";
-    console.log(this.state.options);
     vusuario = user.id;
     console.log("usuario:" + vusuario);
-
-    /*
-<div>
-                prueba
-                <select
-                  value={this.state.folder}
-                  onChange={e => this.setState({ folder: e.target.value })}
-                >
-                  {this.state.options.map(option => (
-                    <option key={option.key} value={option.value}>
-                      {option.text}
-                    </option>
-                  ))}
-                </select>
-              </div>*/
 
     return (
       <MDBContainer>
@@ -160,16 +105,6 @@ class NewFile extends Component {
                 id="description"
                 type="text"
               />
-
-              <div>
-                <MDBSelect
-                  getValue={this.onChanged}
-                  id="folder"
-                  options={this.state.options}
-                  selected="Choose your option"
-                  label="Example label"
-                />
-              </div>
               <MDBInput onChange={this.onChangef} type="file" />
               <div className="text-center mt-4">
                 <MDBBtn color="green" type="submit">

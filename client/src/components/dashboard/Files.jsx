@@ -12,6 +12,9 @@ import {
   MDBCol,
   MDBBtn
 } from "mdbreact";
+
+import { withRouter, Link } from "react-router-dom";
+
 import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -34,6 +37,7 @@ class Files extends Component {
       file: "",
       filename: "",
       filedescription: "",
+      fileglink: "",
       idv: ""
     };
 
@@ -91,9 +95,24 @@ class Files extends Component {
 
   //when this component mounts, grab all books that were save to the database
   componentDidMount() {
-    API.getFile(vusuario)
-      .then(res => this.setState({ misFiles: res.data }))
-      .catch(err => console.log(err));
+    console.log("folderpasado" + this.props.folderid);
+    if (this.props.hayfolder === true) {
+      API.getFilef(vusuario, this.props.folderid)
+        .then(res => {
+          console.log("res-data" + res.data);
+          this.setState({ misFiles: res.data });
+          //console.log("MisFIles" + this.state.misFiles[0].fileglink);
+        })
+        .catch(err => console.log(err));
+    } else {
+      API.getFile(vusuario)
+        .then(res => {
+          console.log("res-data" + res.data);
+          this.setState({ misFiles: res.data });
+          console.log("MisFIles" + this.state.misFiles[0].fileglink);
+        })
+        .catch(err => console.log(err));
+    }
   }
 
   NewFile = () => {
@@ -132,6 +151,11 @@ class Files extends Component {
       .catch(err => console.log(err));
   };
 
+  onClickr = link => {
+    window.open(link, "_blank");
+    //return <Redirect to="/login" />;
+  };
+
   render() {
     const { user } = this.props.auth;
     vusuario = user.id;
@@ -156,8 +180,11 @@ class Files extends Component {
             <MDBCol md="2" />
             <MDBCol md="10">
               <MDBIcon
-                onClick={this.onClick}
-                icon="folder-open"
+                onClick={this.onClickr.bind(
+                  this,
+                  this.state.misFiles[n].fileglink
+                )}
+                icon="book-open"
                 size="2x"
                 color=""
                 className={"Open-" + varp}

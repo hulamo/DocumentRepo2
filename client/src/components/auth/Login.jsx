@@ -24,7 +24,7 @@ class Login extends Component {
       errors: {}
     };
     this.onSubmit = this.onSubmit.bind(this);
-    this.onClick = this.onClick.bind(this);
+    //this.onClick = this.onClick.bind(this);
   }
 
   componentDidMount() {

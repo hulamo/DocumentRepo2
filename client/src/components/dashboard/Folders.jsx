@@ -14,6 +14,7 @@ import {
   MDBInput
 } from "mdbreact";
 
+import Files from "./Files";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import API from "./../../actions/API";
@@ -35,7 +36,10 @@ class Dashboard extends Component {
       folder: "",
       foldername: "",
       description: "",
-      idv: ""
+      idv: "",
+      gotofiles: false,
+      foldergo: "",
+      foldertemp: ""
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.onClick = this.onClick.bind(this);
@@ -112,6 +116,14 @@ class Dashboard extends Component {
     this.setState({ [e.target.id]: e.target.value });
   };
 
+  onClickfolder = (folder, foldertemp) => () => {
+    this.setState({
+      foldergo: folder,
+      gotofiles: true,
+      foldertemp: foldertemp
+    });
+  };
+
   onSubmit = e => {
     e.preventDefault();
     console.log("submit");
@@ -166,7 +178,10 @@ class Dashboard extends Component {
             <MDBCol md="2" />
             <MDBCol md="10">
               <MDBIcon
-                onClick={this.onClick}
+                onClick={this.onClickfolder(
+                  this.state.misFolders[n]._id,
+                  this.state.misFolders[n].foldername
+                )}
                 icon="folder-open"
                 size="2x"
                 color=""
@@ -235,6 +250,16 @@ class Dashboard extends Component {
       ],
       rows: FoldersRow
     };
+
+    if (this.state.gotofiles) {
+      return (
+        <Files
+          foldertemp={this.state.foldertemp}
+          folderid={this.state.foldergo}
+          hayfolder={true}
+        />
+      );
+    }
 
     return (
       <MDBContainer>

@@ -34,6 +34,13 @@ export default {
         return axios.delete("/api/folders/delete/" + id);
     },
 
+    getFilef: function(id, idf) {
+        console.log(id);
+        const params = [{ id: id }, { idf: idf }]
+
+        return axios.get("/api/files/filef/" + id + "/" + idf);
+    },
+
 
     getFolder: function(id) {
         console.log(id);

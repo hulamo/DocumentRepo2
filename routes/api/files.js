@@ -122,7 +122,18 @@ router.post("/newfile", (req, res, next) => {
 router.get("/file/:userid", (req, res) => {
 
     File
-        .find({ user: ObjectId(req.params.userid) }, "_id filename filedescription")
+        .find({ user: ObjectId(req.params.userid) }, "_id filename filedescription fileglink")
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+
+
+});
+
+router.get("/filef/:id/:idf", (req, res) => {
+    console.log("user" + req.params.id)
+    console.log("folder" + req.params.idf)
+    File
+        .find({ user: ObjectId(req.params.id), folder: ObjectId(req.params.idf) }, "_id filename filedescription fileglink")
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
 
