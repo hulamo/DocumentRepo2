@@ -13,6 +13,7 @@
         "build": "cd client && npm run build",
         "heroku-postbuild": "npm run build"
     },
+    "preinstall": "node preinstall.js",
     "author": "",
     "license": "MIT",
     "dependencies": {
