@@ -8,16 +8,14 @@ import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
 export const newFile = (userData, history) => dispatch => {
     axios
         .post("/api/files/newfile", userData, { headers: { 'Content-Type': 'multipart/form-data' } })
-        .then(res => {
-            console.log("userData " + userData)
-            history.push("/folders");
+        .then(res => history.push("/files"))
+
+    .catch(err =>
+        dispatch({
+            type: GET_ERRORS,
+            payload: err.response.data
         })
-        .catch(err =>
-            dispatch({
-                type: GET_ERRORS,
-                payload: err.response.data
-            })
-        );
+    );
 };
 
 

@@ -102,11 +102,13 @@ class NewFile extends Component {
       })
       .then(res => {
         this.setState({ file: "", filename: "", description: "" });
+        console.log(res);
         //e.target.files[0] = "";
         //e.target.files.value = null;
         // then print response status
         console.log(res.statusText);
-      });
+      })
+      .catch(err => console.log(err));
 
     // this.props.newFile(Data, this.props.history);
   };
