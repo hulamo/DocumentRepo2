@@ -50,9 +50,6 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div>
-            <Navbar2 />
-
-            <Navbar />
             <Margens />
             <Route exact path="/" component={Landing} />
 
@@ -67,6 +64,7 @@ class App extends Component {
               <PrivateRoute exact path="/newfile" component={NewFile} />
               <PrivateRoute exact path="/newfriend" component={NewFriend} />
             </Switch>
+            <Navbar />
           </div>
         </Router>
       </Provider>

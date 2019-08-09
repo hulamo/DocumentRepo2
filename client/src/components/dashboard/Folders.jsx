@@ -19,6 +19,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import API from "./../../actions/API";
 import { logoutUser } from "../../actions/authActions";
+import Navbar2 from "../layout/Navbar2";
 
 //var userp = "";
 
@@ -263,6 +264,7 @@ class Dashboard extends Component {
 
     return (
       <MDBContainer>
+        <Navbar2 />
         <form noValidate onSubmit={this.onSubmit}>
           <MDBModal
             isOpen={this.state.modal15}
