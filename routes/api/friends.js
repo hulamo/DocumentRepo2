@@ -33,6 +33,29 @@ router.post("/newfriend", (req, res) => {
 });
 
 
+router.put("/update/:idv", (req, res) => {
+    console.log(req.body);
+    Friend
+        .findOneAndUpdate({ _id: req.params.idv }, req.body)
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+
+});
+
+router.get("/friend/:userid", (req, res) => {
+    console.log(req.params.userid)
+    Friend
+        .find({ id1: req.params.userid }, "_id friendname")
+        .then(dbModel => {
+            res.json(dbModel);
+            console.log(dbModel)
+        })
+        .catch(err => res.status(422).json(err));
+
+
+});
+
+
 
 
 module.exports = router;

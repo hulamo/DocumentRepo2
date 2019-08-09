@@ -21,6 +21,7 @@ import NewFolder from "./components/dashboard/NewFolder";
 import NewFile from "./components/dashboard/NewFile";
 import NewFriend from "./components/dashboard/NewFriend";
 import Files from "./components/dashboard/Files";
+import Contacts from "./components/dashboard/Contacts";
 import Plans from "./components/layout/Plans";
 import "./App.css";
 
@@ -58,6 +59,7 @@ class App extends Component {
             <Route exact path="/plans" component={Plans} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/contacts" component={Contacts} />
               <PrivateRoute exact path="/files" component={Files} />
               <PrivateRoute exact path="/folders" component={Folders} />
               <PrivateRoute exact path="/newfolder" component={NewFolder} />
