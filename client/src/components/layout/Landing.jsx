@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
+import logo from "./DocumentRepoLogo.jpg";
 /*
 <img
               src={process.env.PUBLIC_URL + "documentrepo.jpg"}
@@ -142,12 +143,8 @@ class Landing extends Component {
               </MDBRow>
               <MDBRow middle>
                 <MDBCol md="6">
-                  <i
-                    className="fas fa-book"
-                    style={{ fontSize: "54px", color: "green" }}
-                  />
                   <strong style={{ fontSize: "40px", color: "green" }}>
-                    DocumentRepo
+                    <img src={logo} alt="Logo" />
                   </strong>
                 </MDBCol>
                 <MDBCol md="6">

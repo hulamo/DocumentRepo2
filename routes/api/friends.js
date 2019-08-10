@@ -33,6 +33,15 @@ router.post("/newfriend", (req, res) => {
 });
 
 
+router.delete("/delete/:idv", (req, res) => {
+    Friend
+        .findById({ _id: req.params.idv })
+        .then(dbModel => dbModel.remove())
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+
+});
+
 router.put("/update/:idv", (req, res) => {
     console.log(req.body);
     Friend

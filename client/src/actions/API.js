@@ -58,6 +58,11 @@ export default {
         return axios.delete("/api/files/delete/" + id);
     },
 
+    deleteFriend: function(id) {
+        console.log(id);
+        return axios.delete("/api/friends/delete/" + id);
+    },
+
     getFile: function(id) {
         console.log(id);
         return axios.get("/api/files/file/" + id);
