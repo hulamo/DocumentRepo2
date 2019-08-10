@@ -76,6 +76,8 @@ class Landing extends Component {
               <MDBRow middle>
                 <MDBCol md="12">
                   <img className="img4" src={logo} alt="Logo" />
+                  <br className="img4" />
+                  <br className="img4" />
                 </MDBCol>
               </MDBRow>
 
