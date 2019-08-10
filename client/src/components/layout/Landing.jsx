@@ -75,6 +75,12 @@ class Landing extends Component {
             <MDBCol top md="6" style={{ backgroundColor: "#f5f3f3" }}>
               <MDBRow middle>
                 <MDBCol md="12">
+                  <img className="img4" src={logo} alt="Logo" />
+                </MDBCol>
+              </MDBRow>
+
+              <MDBRow middle>
+                <MDBCol md="12">
                   <div style={{ fontSize: "44px" }}>
                     <strong>If You need to organize and share documents</strong>
                   </div>
@@ -144,7 +150,7 @@ class Landing extends Component {
               <MDBRow middle>
                 <MDBCol md="6">
                   <strong style={{ fontSize: "40px", color: "green" }}>
-                    <img src={logo} alt="Logo" />
+                    <img className="img3" src={logo} alt="Logo" />
                   </strong>
                 </MDBCol>
                 <MDBCol md="6">

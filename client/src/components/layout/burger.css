@@ -14,3 +14,15 @@ body {
 .customC {
     position: realtive;
 }
+
+@media screen and (max-width: 767px) {
+    .img3 {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .img4 {
+        display: none;
+    }
+}
