@@ -72,14 +72,16 @@ class Landing extends Component {
         {this.renderRedirect()}
         <MDBContainer fluid>
           <MDBRow>
-            <MDBCol top md="6" style={{ backgroundColor: "#f5f3f3" }}>
-              <MDBRow middle>
-                <MDBCol md="12">
-                  <img className="img4" src={logo} alt="Logo" />
-                  <br className="img4" />
-                  <br className="img4" />
-                </MDBCol>
-              </MDBRow>
+            <MDBCol top md="6">
+              <div className="img4">
+                <MDBRow middle>
+                  <MDBCol md="12">
+                    <img src={logo} alt="Logo" />
+                    <br />
+                    <br />
+                  </MDBCol>
+                </MDBRow>
+              </div>
 
               <MDBRow middle>
                 <MDBCol md="12">
@@ -151,9 +153,11 @@ class Landing extends Component {
               </MDBRow>
               <MDBRow middle>
                 <MDBCol md="6">
-                  <strong style={{ fontSize: "40px", color: "green" }}>
-                    <img className="img3" src={logo} alt="Logo" />
-                  </strong>
+                  <div className="img3">
+                    <strong style={{ fontSize: "40px", color: "green" }}>
+                      <img src={logo} alt="Logo" />
+                    </strong>
+                  </div>
                 </MDBCol>
                 <MDBCol md="6">
                   <MDBBtn
