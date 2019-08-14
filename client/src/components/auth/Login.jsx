@@ -71,7 +71,7 @@ class Login extends Component {
             <MDBCol md="5">
               <MDBCard>
                 <MDBCardBody>
-                  <p className="h5 text-center mb-4">Sign in</p>
+                  <p className="h5 text-center mb-4">Login</p>
                   <div className="grey-text">
                     <MDBInput
                       onChange={this.onChange}

@@ -69,6 +69,7 @@ class Navbar2 extends Component {
       return (
         <div>
           <MDBNavbar
+            // style={{ marginTop: "80px" }}
             className="fixed-top-2"
             fixed="top"
             color="green darken-3"

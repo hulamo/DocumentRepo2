@@ -9,10 +9,12 @@ const files = require("./routes/api/files");
 const path = require("path");
 
 const friends = require("./routes/api/friends");
+const MONGOURIDB = require("./mongouri");
 
 const app = express();
 
-
+//const MONGOURIDB = mongouri.MONGOURIDB;
+console.log("MONGOURIDB" + MONGOURIDB)
 
 // Bodyparser middleware
 app.use(
@@ -80,7 +82,7 @@ app.get('/*', function(req, res) {
     })
 }) */
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://hulamo:33128284@cluster0-xjcwz.mongodb.net/test?retryWrites=true&w=majority");
+mongoose.connect(process.env.MONGODB_URI || MONGOURIDB);
 
 
 //const port = process.env.PORT || 5000;

@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import "./burger.css";
 import logo from "./DocumentRepoBanner.jpg";
-
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -53,9 +52,8 @@ class Navbar extends Component {
         >
           <MDBNavbarBrand>
             <MDBNavLink to="/">
-              <strong style={{ fontSize: "24px" }} className="white-text">
-                <img src={logo} alt="Logo" height="44" className="img4" />
-                <img src={logo} alt="Logo" height="56" className="img3" />
+              <strong style={{ fontSize: "70px" }} className="white-text">
+                <img height="59" src={logo} alt="Logo" />
               </strong>
             </MDBNavLink>
           </MDBNavbarBrand>
