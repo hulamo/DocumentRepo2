@@ -82,7 +82,7 @@ app.get('/*', function(req, res) {
     })
 }) */
 
-mongoose.connect(process.env.MONGODB_URI || MONGOURIDB);
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://hulamo:33128284@cluster0-xjcwz.mongodb.net/test?retryWrites=true&w=majority");
 
 
 //const port = process.env.PORT || 5000;
