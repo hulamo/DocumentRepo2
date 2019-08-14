@@ -9,12 +9,12 @@ const files = require("./routes/api/files");
 const path = require("path");
 
 const friends = require("./routes/api/friends");
-const MONGOURIDB = require("./mongouri");
+//const MONGOURIDB = require("./mongouri");
 
 const app = express();
 
 //const MONGOURIDB = mongouri.MONGOURIDB;
-console.log("MONGOURIDB" + MONGOURIDB)
+//console.log("MONGOURIDB" + MONGOURIDB)
 
 // Bodyparser middleware
 app.use(
