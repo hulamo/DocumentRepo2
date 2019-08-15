@@ -1,0 +1,82 @@
+.bm-menu {
+    background-color: green;
+}
+
+body {
+    padding-top: 110px;
+}
+
+.customC {
+    position: realtive;
+}
+
+
+/* Query para Pantallas Chicas*/
+
+@media (min-width: 576px) and (max-width: 768px) {
+    .img3 {
+        display: none;
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+    }
+    .fixed-top-2 {
+        margin-top: 86px;
+        position: realtive;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .img3 {
+        display: none;
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+    }
+    .img4 {
+        display: none;
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+    }
+    .fixed-top-2 {
+        margin-top: 80px;
+        position: realtive;
+    }
+}
+
+
+/* Query para Pantallas Grandes*/
+
+@media screen and (min-width: 767px) {
+    .img4 {
+        display: none;
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+    }
+    .fixed-top-2 {
+        margin-top: 98px;
+        position: realtive;
+    }
+}

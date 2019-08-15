@@ -16,7 +16,7 @@ import {
 } from "mdbreact";
 
 var mostrar = true;
-
+// <img src={logo} alt="Logo" height="44" className="img4" />
 class Navbar extends Component {
   state = {
     isOpen: false
@@ -54,8 +54,7 @@ class Navbar extends Component {
           <MDBNavbarBrand>
             <MDBNavLink to="/">
               <strong style={{ fontSize: "24px" }} className="white-text">
-                <img src={logo} alt="Logo" height="44" className="img4" />
-                <img src={logo} alt="Logo" height="56" className="img3" />
+                <img src={logo} alt="Logo" className="img5" />
               </strong>
             </MDBNavLink>
           </MDBNavbarBrand>
