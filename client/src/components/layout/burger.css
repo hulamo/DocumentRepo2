@@ -10,25 +10,25 @@ body {
     position: realtive;
 }
 
-
-/* Query para Pantallas Chicas*/
-
-@media (min-width: 576px) and (max-width: 767px) {
+@media screen and (max-width: 450px) {
     .img5 {
-        height: 44px;
+        height: 30px;
     }
     .fixed-top-2 {
-        margin-top: 86px;
+        margin-top: 77px;
         position: realtive;
     }
 }
 
-@media screen and (max-width: 575px) {
+
+/* Query para Pantallas Chicas*/
+
+@media (min-width: 451px) and (max-width: 767px) {
     .img5 {
-        height: 36px;
+        height: 54px;
     }
     .fixed-top-2 {
-        margin-top: 77px;
+        margin-top: 90px;
         position: realtive;
     }
 }
@@ -38,7 +38,7 @@ body {
 
 @media screen and (min-width: 768px) {
     .img5 {
-        height: 60px;
+        height: 66px;
     }
     .fixed-top-2 {
         margin-top: 98px;
