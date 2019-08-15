@@ -10,9 +10,9 @@ body {
     position: realtive;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 455px) {
     .img5 {
-        height: 30px;
+        height: 40px;
     }
     .fixed-top-2 {
         margin-top: 77px;
@@ -23,7 +23,7 @@ body {
 
 /* Query para Pantallas Chicas*/
 
-@media (min-width: 451px) and (max-width: 767px) {
+@media (min-width: 456px) and (max-width: 767px) {
     .img5 {
         height: 54px;
     }
