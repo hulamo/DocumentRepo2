@@ -84,85 +84,7 @@ class Landing extends Component {
         {this.renderRedirect()}
         <MDBContainer fluid>
           <MDBRow>
-            <MDBCol
-              className="text-center escondegrande"
-              md="6"
-              size="12"
-              middle
-            >
-              <MDBRow middle>
-                <MDBCol md="6" className="d-sm-block text-center">
-                  <br />
-                </MDBCol>
-
-                <MDBCol md="6" />
-              </MDBRow>
-              <MDBRow middle>
-                <MDBCol md="12">
-                  <MDBBtn
-                    rounded
-                    onClick={this.setRedirectl}
-                    size="lg"
-                    active
-                    color="green"
-                  >
-                    Login
-                  </MDBBtn>
-                </MDBCol>
-              </MDBRow>
-              <MDBRow>
-                <MDBCol md="12">
-                  <br />
-                </MDBCol>
-              </MDBRow>
-              <MDBRow middle center>
-                <MDBCol md="12" middle>
-                  <strong className="arialf" style={{ fontSize: "34px" }}>
-                    Discover the best way to share your documents
-                  </strong>
-                </MDBCol>
-              </MDBRow>
-              <MDBRow middle center>
-                <MDBCol lg="6" middle>
-                  <MDBInput
-                    style={{
-                      border: "2px solid",
-                      borderRadius: "4px",
-                      width: "100%"
-                    }}
-                    type="email"
-                    label="Your Email"
-                    size="lg"
-                    outline
-                  />
-                </MDBCol>
-                <MDBCol lg="4" middle>
-                  <MDBBtn
-                    rounded
-                    onClick={this.setRedirectr}
-                    size="lg"
-                    active
-                    color="success"
-                  >
-                    Try it Free
-                  </MDBBtn>
-                </MDBCol>
-              </MDBRow>
-              <MDBRow middle center>
-                <MDBCol md="12" middle>
-                  <strong className="arialf" style={{ fontSize: "24px" }}>
-                    If you are already a user &nbsp;
-                    <Link to="/login">Login</Link>
-                  </strong>
-                </MDBCol>
-                <MDBCol md="6" className="d-sm-block text-center">
-                  <br />
-                  <br />
-                </MDBCol>
-              </MDBRow>
-            </MDBCol>
-
-            <MDBCol md="6" className="order-xs-2">
+            <MDBCol top md="4">
               <MDBRow middle>
                 <MDBCol md="12">
                   <div className="arialf" style={{ fontSize: "44px" }}>
@@ -237,6 +159,70 @@ class Landing extends Component {
                   </MDBCol>
                 </div>
               </MDBRow>
+              <MDBRow>
+                <MDBCol md="12">
+                  <ul className="fa-ul a">
+                    <li style={{ fontSize: "28px", color: "black" }}>
+                      <i
+                        className="fas fa-user-friends"
+                        style={{ fontSize: "34px", color: "green" }}
+                        list
+                        fixed
+                      />
+
+                      <strong
+                        className="arialf"
+                        style={{ fontSize: "28px", color: "black" }}
+                      >
+                        &nbsp;&nbsp;With friends
+                      </strong>
+                    </li>
+                    <li>
+                      <i
+                        className="fas fa-user-cog"
+                        style={{ fontSize: "34px", color: "green" }}
+                        list
+                        fixed
+                      />
+                      <strong
+                        className="arialf"
+                        style={{ fontSize: "28px", color: "black" }}
+                      >
+                        &nbsp;&nbsp;With your team
+                      </strong>
+                    </li>
+
+                    <li>
+                      <i
+                        className="fas fa-user"
+                        style={{ fontSize: "34px", color: "green" }}
+                        list
+                        fixed
+                      />
+                      <strong
+                        className="arialf"
+                        style={{ fontSize: "28px", color: "black" }}
+                      >
+                        &nbsp;&nbsp;With everyone
+                      </strong>
+                    </li>
+                    <li>
+                      <i
+                        className="fas fa-user-lock"
+                        style={{ fontSize: "34px", color: "green" }}
+                        list
+                        fixed
+                      />
+                      <strong
+                        className="arialf"
+                        style={{ fontSize: "28px", color: "black" }}
+                      >
+                        &nbsp;&nbsp;Or keep them private
+                      </strong>
+                    </li>
+                  </ul>
+                </MDBCol>
+              </MDBRow>
 
               <br />
               <MDBRow>
@@ -247,13 +233,7 @@ class Landing extends Component {
                 </MDBCol>
               </MDBRow>
             </MDBCol>
-
-            <MDBCol
-              className="text-center escondechico"
-              md="6"
-              size="12"
-              middle
-            >
+            <MDBCol className="d-sm-block text-center" md="6" middle>
               <MDBRow>
                 <MDBCol md="12" className="d-sm-block text-center">
                   <div className="img3">
@@ -267,7 +247,6 @@ class Landing extends Component {
                 <MDBCol md="6" className="d-sm-block text-center">
                   <br />
                 </MDBCol>
-
                 <MDBCol md="6" />
               </MDBRow>
               <MDBRow middle>
@@ -296,7 +275,7 @@ class Landing extends Component {
                 </MDBCol>
               </MDBRow>
               <MDBRow middle center>
-                <MDBCol lg="6" middle>
+                <MDBCol md="6" middle>
                   <MDBInput
                     style={{
                       border: "2px solid",
@@ -304,12 +283,12 @@ class Landing extends Component {
                       width: "100%"
                     }}
                     type="email"
-                    label="Your Email"
+                    label="Email"
                     size="lg"
                     outline
                   />
                 </MDBCol>
-                <MDBCol lg="4" middle>
+                <MDBCol md="4" middle>
                   <MDBBtn
                     rounded
                     onClick={this.setRedirectr}

@@ -12,6 +12,7 @@ import Navbar2 from "./components/layout/Navbar2";
 import Navbar from "./components/layout/Navbartp";
 import Margens from "./components/layout/Margens";
 import Landing from "./components/layout/Landing";
+
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
@@ -23,6 +24,7 @@ import NewFriend from "./components/dashboard/NewFriend";
 import Files from "./components/dashboard/Files";
 import Contacts from "./components/dashboard/Contacts";
 import Plans from "./components/layout/Plans";
+
 import "./App.css";
 
 // Check for token to keep user logged in

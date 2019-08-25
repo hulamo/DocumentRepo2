@@ -53,40 +53,70 @@ class Navbar extends Component {
         >
           <MDBNavbarBrand>
             <MDBNavLink to="/">
-              <strong style={{ fontSize: "24px" }} className="white-text">
-                <img src={logo} alt="Logo" className="img5" />
-              </strong>
+              <img src={logo} alt="Logo" className="img5" />
             </MDBNavLink>
           </MDBNavbarBrand>
           <MDBNavbarToggler onClick={this.toggleCollapse} />
           <MDBCollapse id="navbarCollapse11" isOpen={this.state.isOpen} navbar>
             <MDBNavbarNav left>
               <MDBNavItem>
-                {mostrar && <MDBNavLink to="/folders">Folders</MDBNavLink>}
+                {mostrar && (
+                  <MDBNavLink className="arialf" to="/folders">
+                    Folders
+                  </MDBNavLink>
+                )}
               </MDBNavItem>
               <MDBNavItem>
-                {mostrar && <MDBNavLink to="/files">Files</MDBNavLink>}
+                {mostrar && (
+                  <MDBNavLink className="arialf" to="/files">
+                    Files
+                  </MDBNavLink>
+                )}
               </MDBNavItem>
               <MDBNavItem>
-                {mostrar && <MDBNavLink to="/contacts">Contacts</MDBNavLink>}
+                {mostrar && (
+                  <MDBNavLink className="arialf" to="/contacts">
+                    Contacts
+                  </MDBNavLink>
+                )}
               </MDBNavItem>
             </MDBNavbarNav>
             <MDBNavbarNav right>
               <MDBNavItem>
-                {!mostrar && <MDBNavLink to="/plans">Pricing Plans</MDBNavLink>}
+                {!mostrar && (
+                  <MDBNavLink className="arialf" to="/plans">
+                    Pricing Plans
+                  </MDBNavLink>
+                )}
               </MDBNavItem>
               <MDBNavItem>
-                {!mostrar && <MDBNavLink to="/register">Register</MDBNavLink>}
+                {!mostrar && (
+                  <MDBNavLink className="arialf" to="/register">
+                    Register
+                  </MDBNavLink>
+                )}
               </MDBNavItem>
               <MDBNavItem>
-                {!mostrar && <MDBNavLink to="/login">Login</MDBNavLink>}
-              </MDBNavItem>
-              <MDBNavItem>
-                {mostrar && <MDBNavLink to="/contacts">Account</MDBNavLink>}
+                {!mostrar && (
+                  <MDBNavLink className="arialf" to="/login">
+                    Login
+                  </MDBNavLink>
+                )}
               </MDBNavItem>
               <MDBNavItem>
                 {mostrar && (
-                  <MDBNavLink to="#" onClick={this.onLogoutClick}>
+                  <MDBNavLink className="arialf" to="/contacts">
+                    Account
+                  </MDBNavLink>
+                )}
+              </MDBNavItem>
+              <MDBNavItem>
+                {mostrar && (
+                  <MDBNavLink
+                    className="arialf"
+                    to="#"
+                    onClick={this.onLogoutClick}
+                  >
                     Logout
                   </MDBNavLink>
                 )}

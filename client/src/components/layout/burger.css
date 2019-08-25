@@ -11,6 +11,9 @@ body {
 }
 
 @media screen and (max-width: 455px) {
+    .img3 {
+        display: none;
+    }
     .img5 {
         height: 40px;
     }
@@ -20,6 +23,13 @@ body {
     }
 }
 
+.borderless {
+    border-top: 0 none;
+    border-bottom: 0 none;
+    border-left: 0 none;
+    border-right: 0 none;
+}
+
 
 /* Query para Pantallas Chicas*/
 
@@ -27,9 +37,18 @@ body {
     .img5 {
         height: 54px;
     }
+    .img3 {
+        display: none;
+    }
     .fixed-top-2 {
         margin-top: 90px;
         position: realtive;
+    }
+    .escondechico {
+        display: none;
+    }
+    .arialf {
+        font-family: Arial, Helvetica, sans-serif;
     }
 }
 
@@ -37,11 +56,19 @@ body {
 /* Query para Pantallas Grandes*/
 
 @media screen and (min-width: 768px) {
+    .escondegrande {
+        display: none;
+    }
     .img5 {
-        height: 66px;
+        height: 58px;
+        padding: 0px;
+        margin: 0px;
     }
     .fixed-top-2 {
-        margin-top: 98px;
+        margin-top: 100px;
         position: realtive;
+    }
+    .arialf {
+        font-size: 18px;
     }
 }
