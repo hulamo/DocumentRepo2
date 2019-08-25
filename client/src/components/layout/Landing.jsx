@@ -123,7 +123,13 @@ class Landing extends Component {
                 </MDBCol>
               </MDBRow>
               <MDBRow middle center>
-                <MDBCol lg="6" middle>
+                <MDBCol size="1" />
+                <MDBCol
+                  size="10"
+                  className="d-sm-block text-center"
+                  middle
+                  center
+                >
                   <MDBInput
                     style={{
                       border: "2px solid",
@@ -136,6 +142,9 @@ class Landing extends Component {
                     outline
                   />
                 </MDBCol>
+                <MDBCol size="1" />
+              </MDBRow>
+              <MDBRow middle center>
                 <MDBCol lg="4" middle>
                   <MDBBtn
                     rounded
@@ -162,7 +171,7 @@ class Landing extends Component {
               </MDBRow>
             </MDBCol>
 
-            <MDBCol md="6" className="order-xs-2">
+            <MDBCol md="6">
               <MDBRow middle>
                 <MDBCol md="12">
                   <div className="arialf" style={{ fontSize: "44px" }}>
