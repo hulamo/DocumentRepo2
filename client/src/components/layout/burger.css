@@ -33,7 +33,7 @@ body {
 
 /* Query para Pantallas Chicas*/
 
-@media (min-width: 456px) and (max-width: 767px) {
+@media (min-width: 0px) and (max-width: 767px) {
     .img5 {
         height: 54px;
     }
