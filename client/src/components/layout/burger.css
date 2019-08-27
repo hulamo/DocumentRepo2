@@ -35,7 +35,7 @@ body {
 
 @media (min-width: 0px) and (max-width: 767px) {
     .img5 {
-        height: 48px;
+        height: 40px;
     }
     .img3 {
         display: none;
